@@ -1,0 +1,94 @@
+#! /bin/bash
+
+
+Checkout_for_Dev()
+{
+	for file in $(ls *.h,v) $(ls *.c,v)
+	do
+      		co -l $file
+	done	
+}
+
+Checkout()
+{
+	for file in $(ls *.h,v) $(ls *.c,v)
+	do
+      		co $file
+	done	
+}
+
+Checkin()
+{
+	for file in $(ls *.h) $(ls *.c)
+	do
+      		ci $file
+	done	
+}
+
+RunProject()
+{
+	read -n1 -p " Do you want to run the project [y/n]"
+	if [ $REPLY = 'y' ]
+	then
+		./mdceit
+        elif [ $REPLY = 'n' ]
+        then
+	     echo	
+             echo "***************** thank you for using MDCEIT ***************************"
+             echo 
+	fi	
+}
+
+Build_Project()
+{
+	if ( make )
+	then
+    		echo " project build successfully"
+                RunProject
+	else
+		echo " project build failled"
+	fi
+}
+
+
+while(true)
+do
+	echo
+	echo "********************* Welcome to MDCEIT ***************************"
+	echo
+	echo "1:- CheckIN file          2:- CheckOut file          3:- CheckOut for Development"
+	echo "4:- Build project         5:- Run Project            6:- Exit"
+        echo
+	read -n1 -p  "Plese tell me , how we can help you"
+   	echo
+	case $REPLY in
+		1)
+			Checkin
+                	;;
+        	2)
+			Checkout
+	        	;;
+		3)
+	       		Checkout_for_Dev
+	        	;;	
+        	4)
+			Build_Project
+                	;;
+        	5)
+			RunProject
+	        	;;	
+		6)
+                        echo "***************** thank you for using MDCEIT ***************************"
+			exit 0
+			;;
+        	*)
+			echo "please select correct option"
+			echo
+                        echo "***************** thank you for using MDCEIT ***************************"
+			;;
+	esac	
+done
+
+
+
+Checkout_for_Dev

@@ -1,0 +1,39 @@
+head	1.1;
+access;
+symbols;
+locks
+	root:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2021.03.25.03.24.09;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "headers.h"
+#include "declaretions.h"
+
+int main()
+{
+     int choise;
+     printf("Begin:%s\n",__func__);
+     Initializetion();
+     while(1)
+     {
+             (*fptr[5])(NULL);
+     }        
+     printf("End:%s\n",__func__);
+}
+
+@

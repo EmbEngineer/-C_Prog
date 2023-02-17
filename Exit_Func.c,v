@@ -1,0 +1,41 @@
+head	1.1;
+access;
+symbols;
+locks
+	root:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2021.03.25.03.24.06;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "headers.h"
+#include "declaretions.h"
+
+void* Exti_Func(void *status)
+{
+       printf("Begin:%s\n",__func__);
+       
+       if((strncmp((char *)status,"Success",7) == 0 ))
+           exit(EXIT_SUCCESS);
+       else if ((strncmp((char *)status,"Failure",7) == 0))	   
+           exit(EXIT_FAILURE);
+
+       printf("End:%s\n",__func__);
+   return 0;
+}
+
+
+@
